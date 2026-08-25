@@ -205,119 +205,47 @@
 <script>
 (function(){
 
-  var SIGNS = [
-    {id:"aries",       name:"Aries",       glyph:"♈", dates:"21 mar – 19 abr", element:"fuego"},
-    {id:"tauro",       name:"Tauro",       glyph:"♉", dates:"20 abr – 20 may", element:"tierra"},
-    {id:"geminis",     name:"Géminis",     glyph:"♊", dates:"21 may – 20 jun", element:"aire"},
-    {id:"cancer",      name:"Cáncer",      glyph:"♋", dates:"21 jun – 22 jul", element:"agua"},
-    {id:"leo",         name:"Leo",         glyph:"♌", dates:"23 jul – 22 ago", element:"fuego"},
-    {id:"virgo",       name:"Virgo",       glyph:"♍", dates:"23 ago – 22 sep", element:"tierra"},
-    {id:"libra",       name:"Libra",       glyph:"♎", dates:"23 sep – 22 oct", element:"aire"},
-    {id:"escorpio",    name:"Escorpio",    glyph:"♏", dates:"23 oct – 21 nov", element:"agua"},
-    {id:"sagitario",   name:"Sagitario",   glyph:"♐", dates:"22 nov – 21 dic", element:"fuego"},
-    {id:"capricornio", name:"Capricornio", glyph:"♑", dates:"22 dic – 19 ene", element:"tierra"},
-    {id:"acuario",     name:"Acuario",     glyph:"♒", dates:"20 ene – 18 feb", element:"aire"},
-    {id:"piscis",      name:"Piscis",      glyph:"♓", dates:"19 feb – 20 mar", element:"agua"}
+  var FALLBACK_SIGNS = [
+    {id:"aries",       name:"Aries",       glyph:"♈", dates:"21 mar – 19 abr"},
+    {id:"tauro",       name:"Tauro",       glyph:"♉", dates:"20 abr – 20 may"},
+    {id:"geminis",     name:"Géminis",     glyph:"♊", dates:"21 may – 20 jun"},
+    {id:"cancer",      name:"Cáncer",      glyph:"♋", dates:"21 jun – 22 jul"},
+    {id:"leo",         name:"Leo",         glyph:"♌", dates:"23 jul – 22 ago"},
+    {id:"virgo",       name:"Virgo",       glyph:"♍", dates:"23 ago – 22 sep"},
+    {id:"libra",       name:"Libra",       glyph:"♎", dates:"23 sep – 22 oct"},
+    {id:"escorpio",    name:"Escorpio",    glyph:"♏", dates:"23 oct – 21 nov"},
+    {id:"sagitario",   name:"Sagitario",   glyph:"♐", dates:"22 nov – 21 dic"},
+    {id:"capricornio", name:"Capricornio", glyph:"♑", dates:"22 dic – 19 ene"},
+    {id:"acuario",     name:"Acuario",     glyph:"♒", dates:"20 ene – 18 feb"},
+    {id:"piscis",      name:"Piscis",      glyph:"♓", dates:"19 feb – 20 mar"}
   ];
 
-  var QUOTES = [
-    "El universo susurra antes de hablar en voz alta.",
-    "Hoy la calma vale más que la prisa.",
-    "Lo que siembras en silencio hoy, florece mañana.",
-    "La claridad llega cuando dejas de forzar la respuesta.",
-    "Un paso pequeño y honesto vale más que un salto dudoso.",
-    "El día premia a quien escucha antes de reaccionar.",
-    "Hoy conviene soltar lo que ya no encaja.",
-    "La paciencia de hoy es la ventaja de mañana."
-  ];
+  // El contenido del día (lecturas de los 12 signos) lo genera un GitHub
+  // Action una vez al día (ver .github/workflows/daily-horoscope.yml) y lo
+  // deja listo en data/today.json. Esta página solo lo lee y lo muestra.
+  fetch("data/today.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(data){ init(data.signs, data.readings, data.date_label); })
+    .catch(function(){ init(FALLBACK_SIGNS, null, null); });
 
-  var AMOR = [
-    "Una conversación pendiente encuentra por fin el momento correcto para salir.",
-    "Tu forma de mostrar cariño hoy dice más que cualquier palabra grande.",
-    "Alguien cercano necesita que bajes la guardia un poco antes que tú.",
-    "Es un buen día para reparar un pequeño malentendido antes de que crezca.",
-    "El corazón pide sinceridad más que perfección hoy.",
-    "Una señal pequeña de alguien especial merece tu atención completa.",
-    "Hoy te conviene escuchar más de lo que hablas en tus vínculos cercanos.",
-    "La ternura de hoy siembra confianza para las semanas que vienen.",
-    "Un gesto espontáneo vale más que uno planeado con exceso.",
-    "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy."
-  ];
+  function init(SIGNS, READINGS, dateLabel){
 
-  var TRABAJO = [
-    "Una idea que traías rondando encuentra hoy el momento de ponerse en marcha.",
-    "Conviene revisar los detalles antes de dar algo por terminado.",
-    "Tu disciplina de hoy resuelve algo que llevaba días estancado.",
-    "Una charla directa con un colega destraba más de lo que esperas.",
-    "Es buen momento para pedir ayuda en vez de cargar todo solo.",
-    "Hoy rinde más organizar que apurar.",
-    "Una propuesta tuya llama la atención de quien menos esperabas.",
-    "Conviene cerrar un pendiente antes de abrir uno nuevo.",
-    "Tu enfoque hoy se beneficia de una pausa breve a media tarde.",
-    "Una decisión financiera pequeña de hoy conviene pensarla dos veces."
-  ];
-
-  var SALUD = [
-    "El cuerpo pide hoy más descanso del que sueles darle.",
-    "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
-    "Hidratarte más de lo habitual te cae bien hoy.",
-    "Conviene bajar el ritmo antes de que el cansancio decida por ti.",
-    "Hoy es buen día para volver a una rutina que habías abandonado.",
-    "Tu energía mejora si sueltas una preocupación que no te corresponde resolver hoy.",
-    "Dormir un poco antes esta noche marca diferencia mañana.",
-    "El estrés de hoy baja más con aire libre que con pantallas.",
-    "Escuchar una señal pequeña del cuerpo hoy evita un malestar mayor después.",
-    "Comer con más calma te sienta mejor que comer rápido hoy."
-  ];
-
-  var COLORS = [
-    {name:"Violeta", hex:"#7c5cbf"},
-    {name:"Dorado",  hex:"#b8873a"},
-    {name:"Verde salvia", hex:"#7a9471"},
-    {name:"Terracota", hex:"#c1673f"},
-    {name:"Azul noche", hex:"#3b4f7a"},
-    {name:"Rosa antiguo", hex:"#b97a86"},
-    {name:"Marfil", hex:"#c9bfa4"},
-    {name:"Coral", hex:"#c96a56"}
-  ];
-
-  // Fecha de hoy, en zona horaria local de quien visita la página.
-  var now = new Date();
-  var dayKey = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
-
-  var dateFmt = new Intl.DateTimeFormat("es-MX", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-  var dateStr = dateFmt.format(now);
-  document.getElementById("today-date").textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
-
-  // RNG determinista por día + signo, para que la lectura sea estable durante
-  // todo el día y cambie automáticamente cuando cambia la fecha.
-  function hashSeed(str){
-    var h = 1779033703 ^ str.length;
-    for (var i = 0; i < str.length; i++) {
-      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
-      h = (h << 13) | (h >>> 19);
-    }
-    return function(){
-      h = Math.imul(h ^ (h >>> 16), 2246822519);
-      h = Math.imul(h ^ (h >>> 13), 3266489917);
-      h ^= h >>> 16;
-      return (h >>> 0) / 4294967296;
-    };
+  if (dateLabel) {
+    document.getElementById("today-date").textContent = dateLabel;
+  } else {
+    var now = new Date();
+    var dateFmt = new Intl.DateTimeFormat("es-MX", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+    var dateStr = dateFmt.format(now);
+    document.getElementById("today-date").textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
   }
 
-  function pick(arr, rng){ return arr[Math.floor(rng() * arr.length)]; }
-
   function readingFor(sign){
-    var rng = hashSeed(dayKey + "-" + sign.id);
-    var compatible = SIGNS[Math.floor(rng()*SIGNS.length)];
+    if (READINGS && READINGS[sign.id]) return READINGS[sign.id];
     return {
-      quote: pick(QUOTES, rng),
-      amor: pick(AMOR, rng),
-      trabajo: pick(TRABAJO, rng),
-      salud: pick(SALUD, rng),
-      numero: 1 + Math.floor(rng()*99),
-      color: pick(COLORS, rng),
-      compatible: compatible.id === sign.id ? SIGNS[(SIGNS.indexOf(sign)+4)%12] : compatible
+      quote: "El horóscopo de hoy no se pudo cargar; vuelve a intentarlo más tarde.",
+      amor: "—", trabajo: "—", salud: "—",
+      numero: "—", color: {name:"—", hex:"#c9bfa4"},
+      compatible: {glyph:"", name:"—"}
     };
   }
 
@@ -379,12 +307,11 @@
     card.classList.add("show");
   }
 
-  // Refresca automáticamente si la página queda abierta y cruza la medianoche.
-  setInterval(function(){
-    var n = new Date();
-    var k = n.getFullYear() + "-" + (n.getMonth()+1) + "-" + n.getDate();
-    if (k !== dayKey) { location.reload(); }
-  }, 60000);
+  } // fin init()
+
+  // Si la página queda abierta muchas horas, la recarga trae la lectura
+  // nueva en cuanto el GitHub Action publique la del día siguiente.
+  setInterval(function(){ location.reload(); }, 3 * 60 * 60 * 1000);
 
 })();
 </script>
