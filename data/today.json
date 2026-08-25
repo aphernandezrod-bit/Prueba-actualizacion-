@@ -1,0 +1,273 @@
+{
+  "date_iso": "2026-08-25",
+  "date_label": "Martes, 25 de agosto de 2026",
+  "generated_at_utc": "2026-08-25T22:48:32.754202Z",
+  "signs": [
+    {
+      "id": "aries",
+      "name": "Aries",
+      "glyph": "♈",
+      "dates": "21 mar – 19 abr"
+    },
+    {
+      "id": "tauro",
+      "name": "Tauro",
+      "glyph": "♉",
+      "dates": "20 abr – 20 may"
+    },
+    {
+      "id": "geminis",
+      "name": "Géminis",
+      "glyph": "♊",
+      "dates": "21 may – 20 jun"
+    },
+    {
+      "id": "cancer",
+      "name": "Cáncer",
+      "glyph": "♋",
+      "dates": "21 jun – 22 jul"
+    },
+    {
+      "id": "leo",
+      "name": "Leo",
+      "glyph": "♌",
+      "dates": "23 jul – 22 ago"
+    },
+    {
+      "id": "virgo",
+      "name": "Virgo",
+      "glyph": "♍",
+      "dates": "23 ago – 22 sep"
+    },
+    {
+      "id": "libra",
+      "name": "Libra",
+      "glyph": "♎",
+      "dates": "23 sep – 22 oct"
+    },
+    {
+      "id": "escorpio",
+      "name": "Escorpio",
+      "glyph": "♏",
+      "dates": "23 oct – 21 nov"
+    },
+    {
+      "id": "sagitario",
+      "name": "Sagitario",
+      "glyph": "♐",
+      "dates": "22 nov – 21 dic"
+    },
+    {
+      "id": "capricornio",
+      "name": "Capricornio",
+      "glyph": "♑",
+      "dates": "22 dic – 19 ene"
+    },
+    {
+      "id": "acuario",
+      "name": "Acuario",
+      "glyph": "♒",
+      "dates": "20 ene – 18 feb"
+    },
+    {
+      "id": "piscis",
+      "name": "Piscis",
+      "glyph": "♓",
+      "dates": "19 feb – 20 mar"
+    }
+  ],
+  "readings": {
+    "aries": {
+      "quote": "El astro que rige tu día premia la honestidad sobre la comodidad.",
+      "amor": "Conviene celebrar lo bueno de un vínculo antes de enfocarte en lo que falta.",
+      "trabajo": "Tu creatividad de hoy resuelve algo que la lógica no pudo sola.",
+      "salud": "Conviene bajar el volumen mental antes de que se convierta en tensión física.",
+      "numero": 81,
+      "color": {
+        "name": "Marfil",
+        "hex": "#c9bfa4"
+      },
+      "compatible": {
+        "id": "piscis",
+        "name": "Piscis",
+        "glyph": "♓"
+      }
+    },
+    "tauro": {
+      "quote": "Un paso pequeño y honesto vale más que un salto dudoso.",
+      "amor": "Hoy conviene decir lo que sientes antes de que se acumule en silencio.",
+      "trabajo": "Hoy alguien reconoce un esfuerzo que hiciste sin buscar aplausos.",
+      "salud": "Hoy es buen día para revisar una molestia que llevas ignorando.",
+      "numero": 71,
+      "color": {
+        "name": "Dorado",
+        "hex": "#b8873a"
+      },
+      "compatible": {
+        "id": "acuario",
+        "name": "Acuario",
+        "glyph": "♒"
+      }
+    },
+    "geminis": {
+      "quote": "No todo lo que se mueve avanza; hoy toca distinguir eso.",
+      "amor": "Un gesto espontáneo vale más que uno planeado con exceso.",
+      "trabajo": "Una idea que traías rondando encuentra hoy el momento de ponerse en marcha.",
+      "salud": "Conviene escuchar el hambre real y no la ansiedad disfrazada de hambre hoy.",
+      "numero": 89,
+      "color": {
+        "name": "Verde salvia",
+        "hex": "#7a9471"
+      },
+      "compatible": {
+        "id": "libra",
+        "name": "Libra",
+        "glyph": "♎"
+      }
+    },
+    "cancer": {
+      "quote": "Cuidar los detalles pequeños hoy evita corregir errores grandes después.",
+      "amor": "Es buen momento para preguntar en vez de asumir en tus relaciones.",
+      "trabajo": "Es buen día para actualizar algo que llevaba tiempo desactualizado.",
+      "salud": "Conviene escuchar el hambre real y no la ansiedad disfrazada de hambre hoy.",
+      "numero": 99,
+      "color": {
+        "name": "Verde bosque",
+        "hex": "#3f6b52"
+      },
+      "compatible": {
+        "id": "acuario",
+        "name": "Acuario",
+        "glyph": "♒"
+      }
+    },
+    "leo": {
+      "quote": "Confía en que lo que construyes hoy no se ve completo todavía.",
+      "amor": "Conviene no confundir costumbre con compromiso real hoy.",
+      "trabajo": "Es buen momento para pedir ayuda en vez de cargar todo solo.",
+      "salud": "Hidratarte más de lo habitual te cae bien hoy.",
+      "numero": 30,
+      "color": {
+        "name": "Marfil",
+        "hex": "#c9bfa4"
+      },
+      "compatible": {
+        "id": "geminis",
+        "name": "Géminis",
+        "glyph": "♊"
+      }
+    },
+    "virgo": {
+      "quote": "Las respuestas que buscas llegan más rápido cuando dejas de perseguirlas.",
+      "amor": "La ternura de hoy siembra confianza para las semanas que vienen.",
+      "trabajo": "Es buen momento para delegar algo que no necesita tu firma personal.",
+      "salud": "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
+      "numero": 73,
+      "color": {
+        "name": "Dorado",
+        "hex": "#b8873a"
+      },
+      "compatible": {
+        "id": "escorpio",
+        "name": "Escorpio",
+        "glyph": "♏"
+      }
+    },
+    "libra": {
+      "quote": "Cuidar los detalles pequeños hoy evita corregir errores grandes después.",
+      "amor": "Una relación que iba lenta encuentra hoy un empujón natural.",
+      "trabajo": "Una propuesta tuya llama la atención de quien menos esperabas.",
+      "salud": "Conviene bajar el ritmo antes de que el cansancio decida por ti.",
+      "numero": 32,
+      "color": {
+        "name": "Ámbar",
+        "hex": "#c98a2e"
+      },
+      "compatible": {
+        "id": "aries",
+        "name": "Aries",
+        "glyph": "♈"
+      }
+    },
+    "escorpio": {
+      "quote": "El equilibrio de hoy no está en hacer más, sino en soltar algo.",
+      "amor": "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy.",
+      "trabajo": "Una tarea aburrida de hoy abre camino a algo más interesante mañana.",
+      "salud": "Dormir un poco antes esta noche marca diferencia mañana.",
+      "numero": 22,
+      "color": {
+        "name": "Verde salvia",
+        "hex": "#7a9471"
+      },
+      "compatible": {
+        "id": "aries",
+        "name": "Aries",
+        "glyph": "♈"
+      }
+    },
+    "sagitario": {
+      "quote": "La claridad llega cuando dejas de forzar la respuesta.",
+      "amor": "Alguien cercano necesita que bajes la guardia un poco antes que tú.",
+      "trabajo": "Una tarea aburrida de hoy abre camino a algo más interesante mañana.",
+      "salud": "Hoy es buen día para volver a una rutina que habías abandonado.",
+      "numero": 93,
+      "color": {
+        "name": "Ámbar",
+        "hex": "#c98a2e"
+      },
+      "compatible": {
+        "id": "aries",
+        "name": "Aries",
+        "glyph": "♈"
+      }
+    },
+    "capricornio": {
+      "quote": "Un paso pequeño y honesto vale más que un salto dudoso.",
+      "amor": "Conviene no confundir costumbre con compromiso real hoy.",
+      "trabajo": "Una decisión financiera pequeña de hoy conviene pensarla dos veces.",
+      "salud": "Hoy es buen día para volver a una rutina que habías abandonado.",
+      "numero": 12,
+      "color": {
+        "name": "Rosa antiguo",
+        "hex": "#b97a86"
+      },
+      "compatible": {
+        "id": "tauro",
+        "name": "Tauro",
+        "glyph": "♉"
+      }
+    },
+    "acuario": {
+      "quote": "Hoy la calma vale más que la prisa.",
+      "amor": "Una pequeña broma compartida hoy destensa algo que llevaba días tenso.",
+      "trabajo": "Tu creatividad de hoy resuelve algo que la lógica no pudo sola.",
+      "salud": "Hoy el descanso no es pérdida de tiempo, es inversión.",
+      "numero": 99,
+      "color": {
+        "name": "Terracota",
+        "hex": "#c1673f"
+      },
+      "compatible": {
+        "id": "leo",
+        "name": "Leo",
+        "glyph": "♌"
+      }
+    },
+    "piscis": {
+      "quote": "El universo susurra antes de hablar en voz alta.",
+      "amor": "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy.",
+      "trabajo": "Una oportunidad se abre si te animas a preguntar directamente.",
+      "salud": "Hidratarte más de lo habitual te cae bien hoy.",
+      "numero": 47,
+      "color": {
+        "name": "Ámbar",
+        "hex": "#c98a2e"
+      },
+      "compatible": {
+        "id": "capricornio",
+        "name": "Capricornio",
+        "glyph": "♑"
+      }
+    }
+  }
+}
