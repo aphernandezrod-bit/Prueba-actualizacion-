@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horóscopo de Chava · Reporte diario</title>
+<meta name="description" content="Horóscopo diario: elige tu signo y descubre qué dicen los astros hoy en amor, trabajo y salud.">
+<style>
+  :root{
+    --bg:#f2e9da;
+    --bg-2:#ece0cd;
+    --ink:#2f2a24;
+    --ink-soft:#6b6153;
+    --line:rgba(47,42,36,0.18);
+    --accent:#7c5cbf;
+    --accent-soft:#efe7fa;
+    --card:#fffdf8;
+    --gold:#b8873a;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 15% 8%, rgba(124,92,191,0.07), transparent 40%),
+      radial-gradient(circle at 85% 88%, rgba(184,135,58,0.10), transparent 45%),
+      var(--bg);
+    color:var(--ink);
+    font-family: "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:56px 20px 80px;
+  }
+  .eyebrow{
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold);
+    font-family: Georgia, serif;
+    margin-bottom:18px;
+    text-align:center;
+  }
+  h1{
+    font-size:clamp(34px,6vw,58px);
+    margin:0 0 18px;
+    text-align:center;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .sub{
+    max-width:520px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:17px;
+    line-height:1.55;
+    margin:0 auto 10px;
+  }
+  .date{
+    text-align:center;
+    color:var(--ink-soft);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:46px;
+  }
+  .wheel-wrap{
+    position:relative;
+    width:min(88vw,460px);
+    aspect-ratio:1/1;
+    margin-bottom:44px;
+  }
+  .ring{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+  .ring.r2{ inset:9%; }
+  .ring.r3{ inset:34%; background:var(--bg-2); border-color:var(--line); }
+  .center-glyph{
+    position:absolute;
+    inset:34%;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    color:var(--ink-soft);
+    text-align:center;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    line-height:1.4;
+    padding:10%;
+  }
+  .sign-btn{
+    position:absolute;
+    width:52px;
+    height:52px;
+    margin:-26px 0 0 -26px;
+    border-radius:50%;
+    background:var(--card);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    cursor:pointer;
+    color:var(--accent);
+    transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+    box-shadow:0 1px 2px rgba(47,42,36,0.06);
+  }
+  .sign-btn:hover{ transform:scale(1.12); }
+  .sign-btn.active{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 6px 16px rgba(124,92,191,0.35);
+    transform:scale(1.16);
+  }
+  .card{
+    width:100%;
+    max-width:560px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:38px 34px 34px;
+    box-shadow:0 20px 50px rgba(47,42,36,0.08);
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .card.show{ opacity:1; transform:translateY(0); }
+  .card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:6px;
+  }
+  .card-glyph{
+    width:46px;height:46px;border-radius:50%;
+    background:var(--accent-soft);
+    color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+  }
+  .card-title{ font-size:24px; margin:0; }
+  .card-dates{ color:var(--ink-soft); font-size:13px; margin:2px 0 0; }
+  .card-quote{
+    font-style:italic;
+    color:var(--ink-soft);
+    border-left:2px solid var(--accent);
+    padding-left:14px;
+    margin:22px 0 24px;
+    line-height:1.6;
+  }
+  .rows{ display:flex; flex-direction:column; gap:16px; margin-bottom:24px; }
+  .row-label{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 4px;
+  }
+  .row p{ margin:0; line-height:1.6; font-size:15.5px; }
+  .stats{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    border-top:1px solid var(--line);
+    padding-top:20px;
+  }
+  .stat{ min-width:110px; }
+  .stat-k{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); }
+  .stat-v{ font-size:16px; margin-top:2px; }
+  .swatch{ width:14px;height:14px;border-radius:50%; display:inline-block; margin-right:6px; vertical-align:-2px; border:1px solid var(--line); }
+  .placeholder{
+    color:var(--ink-soft);
+    font-size:14px;
+    text-align:center;
+  }
+  footer{
+    margin-top:56px;
+    color:var(--ink-soft);
+    font-size:12px;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Horóscopo de Chava · Reporte diario</div>
+  <h1>¿Cómo te irá hoy?</h1>
+  <p class="sub">Elige tu signo en la rueda y descubre qué dicen los astros para tu día en amor, trabajo y salud.</p>
+  <div class="date" id="today-date"></div>
+
+  <div class="wheel-wrap" id="wheel"></div>
+
+  <div class="card" id="card">
+    <p class="placeholder" id="placeholder">Toca un signo para ver tu lectura de hoy.</p>
+  </div>
+
+  <footer>Se actualiza automáticamente cada día · Horóscopo de Chava</footer>
+
+<script>
+(function(){
+
+  var SIGNS = [
+    {id:"aries",       name:"Aries",       glyph:"♈", dates:"21 mar – 19 abr", element:"fuego"},
+    {id:"tauro",       name:"Tauro",       glyph:"♉", dates:"20 abr – 20 may", element:"tierra"},
+    {id:"geminis",     name:"Géminis",     glyph:"♊", dates:"21 may – 20 jun", element:"aire"},
+    {id:"cancer",      name:"Cáncer",      glyph:"♋", dates:"21 jun – 22 jul", element:"agua"},
+    {id:"leo",         name:"Leo",         glyph:"♌", dates:"23 jul – 22 ago", element:"fuego"},
+    {id:"virgo",       name:"Virgo",       glyph:"♍", dates:"23 ago – 22 sep", element:"tierra"},
+    {id:"libra",       name:"Libra",       glyph:"♎", dates:"23 sep – 22 oct", element:"aire"},
+    {id:"escorpio",    name:"Escorpio",    glyph:"♏", dates:"23 oct – 21 nov", element:"agua"},
+    {id:"sagitario",   name:"Sagitario",   glyph:"♐", dates:"22 nov – 21 dic", element:"fuego"},
+    {id:"capricornio", name:"Capricornio", glyph:"♑", dates:"22 dic – 19 ene", element:"tierra"},
+    {id:"acuario",     name:"Acuario",     glyph:"♒", dates:"20 ene – 18 feb", element:"aire"},
+    {id:"piscis",      name:"Piscis",      glyph:"♓", dates:"19 feb – 20 mar", element:"agua"}
+  ];
+
+  var QUOTES = [
+    "El universo susurra antes de hablar en voz alta.",
+    "Hoy la calma vale más que la prisa.",
+    "Lo que siembras en silencio hoy, florece mañana.",
+    "La claridad llega cuando dejas de forzar la respuesta.",
+    "Un paso pequeño y honesto vale más que un salto dudoso.",
+    "El día premia a quien escucha antes de reaccionar.",
+    "Hoy conviene soltar lo que ya no encaja.",
+    "La paciencia de hoy es la ventaja de mañana."
+  ];
+
+  var AMOR = [
+    "Una conversación pendiente encuentra por fin el momento correcto para salir.",
+    "Tu forma de mostrar cariño hoy dice más que cualquier palabra grande.",
+    "Alguien cercano necesita que bajes la guardia un poco antes que tú.",
+    "Es un buen día para reparar un pequeño malentendido antes de que crezca.",
+    "El corazón pide sinceridad más que perfección hoy.",
+    "Una señal pequeña de alguien especial merece tu atención completa.",
+    "Hoy te conviene escuchar más de lo que hablas en tus vínculos cercanos.",
+    "La ternura de hoy siembra confianza para las semanas que vienen.",
+    "Un gesto espontáneo vale más que uno planeado con exceso.",
+    "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy."
+  ];
+
+  var TRABAJO = [
+    "Una idea que traías rondando encuentra hoy el momento de ponerse en marcha.",
+    "Conviene revisar los detalles antes de dar algo por terminado.",
+    "Tu disciplina de hoy resuelve algo que llevaba días estancado.",
+    "Una charla directa con un colega destraba más de lo que esperas.",
+    "Es buen momento para pedir ayuda en vez de cargar todo solo.",
+    "Hoy rinde más organizar que apurar.",
+    "Una propuesta tuya llama la atención de quien menos esperabas.",
+    "Conviene cerrar un pendiente antes de abrir uno nuevo.",
+    "Tu enfoque hoy se beneficia de una pausa breve a media tarde.",
+    "Una decisión financiera pequeña de hoy conviene pensarla dos veces."
+  ];
+
+  var SALUD = [
+    "El cuerpo pide hoy más descanso del que sueles darle.",
+    "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
+    "Hidratarte más de lo habitual te cae bien hoy.",
+    "Conviene bajar el ritmo antes de que el cansancio decida por ti.",
+    "Hoy es buen día para volver a una rutina que habías abandonado.",
+    "Tu energía mejora si sueltas una preocupación que no te corresponde resolver hoy.",
+    "Dormir un poco antes esta noche marca diferencia mañana.",
+    "El estrés de hoy baja más con aire libre que con pantallas.",
+    "Escuchar una señal pequeña del cuerpo hoy evita un malestar mayor después.",
+    "Comer con más calma te sienta mejor que comer rápido hoy."
+  ];
+
+  var COLORS = [
+    {name:"Violeta", hex:"#7c5cbf"},
+    {name:"Dorado",  hex:"#b8873a"},
+    {name:"Verde salvia", hex:"#7a9471"},
+    {name:"Terracota", hex:"#c1673f"},
+    {name:"Azul noche", hex:"#3b4f7a"},
+    {name:"Rosa antiguo", hex:"#b97a86"},
+    {name:"Marfil", hex:"#c9bfa4"},
+    {name:"Coral", hex:"#c96a56"}
+  ];
+
+  // Fecha de hoy, en zona horaria local de quien visita la página.
+  var now = new Date();
+  var dayKey = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
+
+  var dateFmt = new Intl.DateTimeFormat("es-MX", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+  var dateStr = dateFmt.format(now);
+  document.getElementById("today-date").textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+
+  // RNG determinista por día + signo, para que la lectura sea estable durante
+  // todo el día y cambie automáticamente cuando cambia la fecha.
+  function hashSeed(str){
+    var h = 1779033703 ^ str.length;
+    for (var i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function(){
+      h = Math.imul(h ^ (h >>> 16), 2246822519);
+      h = Math.imul(h ^ (h >>> 13), 3266489917);
+      h ^= h >>> 16;
+      return (h >>> 0) / 4294967296;
+    };
+  }
+
+  function pick(arr, rng){ return arr[Math.floor(rng() * arr.length)]; }
+
+  function readingFor(sign){
+    var rng = hashSeed(dayKey + "-" + sign.id);
+    var compatible = SIGNS[Math.floor(rng()*SIGNS.length)];
+    return {
+      quote: pick(QUOTES, rng),
+      amor: pick(AMOR, rng),
+      trabajo: pick(TRABAJO, rng),
+      salud: pick(SALUD, rng),
+      numero: 1 + Math.floor(rng()*99),
+      color: pick(COLORS, rng),
+      compatible: compatible.id === sign.id ? SIGNS[(SIGNS.indexOf(sign)+4)%12] : compatible
+    };
+  }
+
+  // --- construir la rueda ---
+  var wheel = document.getElementById("wheel");
+  var ring1 = document.createElement("div"); ring1.className = "ring";
+  var ring2 = document.createElement("div"); ring2.className = "ring r2";
+  var ring3 = document.createElement("div"); ring3.className = "ring r3";
+  var centerGlyph = document.createElement("div");
+  centerGlyph.className = "center-glyph";
+  centerGlyph.textContent = "Elige tu signo";
+  wheel.appendChild(ring1); wheel.appendChild(ring2); wheel.appendChild(ring3); wheel.appendChild(centerGlyph);
+
+  var radiusPct = 43;
+  SIGNS.forEach(function(sign, i){
+    var angle = (i / SIGNS.length) * 2 * Math.PI - Math.PI/2;
+    var x = 50 + radiusPct * Math.cos(angle);
+    var y = 50 + radiusPct * Math.sin(angle);
+    var btn = document.createElement("button");
+    btn.className = "sign-btn";
+    btn.type = "button";
+    btn.style.left = x + "%";
+    btn.style.top = y + "%";
+    btn.textContent = sign.glyph;
+    btn.title = sign.name;
+    btn.setAttribute("aria-label", sign.name);
+    btn.addEventListener("click", function(){ selectSign(sign, btn); });
+    wheel.appendChild(btn);
+  });
+
+  var card = document.getElementById("card");
+
+  function selectSign(sign, btn){
+    Array.prototype.forEach.call(wheel.querySelectorAll(".sign-btn"), function(b){ b.classList.remove("active"); });
+    btn.classList.add("active");
+
+    var r = readingFor(sign);
+
+    card.innerHTML =
+      '<div class="card-head">' +
+        '<div class="card-glyph">' + sign.glyph + '</div>' +
+        '<div>' +
+          '<h2 class="card-title">' + sign.name + '</h2>' +
+          '<p class="card-dates">' + sign.dates + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<p class="card-quote">' + r.quote + '</p>' +
+      '<div class="rows">' +
+        '<div class="row"><p class="row-label">Amor</p><p>' + r.amor + '</p></div>' +
+        '<div class="row"><p class="row-label">Trabajo</p><p>' + r.trabajo + '</p></div>' +
+        '<div class="row"><p class="row-label">Salud</p><p>' + r.salud + '</p></div>' +
+      '</div>' +
+      '<div class="stats">' +
+        '<div class="stat"><div class="stat-k">Número</div><div class="stat-v">' + r.numero + '</div></div>' +
+        '<div class="stat"><div class="stat-k">Color</div><div class="stat-v"><span class="swatch" style="background:' + r.color.hex + '"></span>' + r.color.name + '</div></div>' +
+        '<div class="stat"><div class="stat-k">Compatible</div><div class="stat-v">' + r.compatible.glyph + ' ' + r.compatible.name + '</div></div>' +
+      '</div>';
+
+    card.classList.add("show");
+  }
+
+  // Refresca automáticamente si la página queda abierta y cruza la medianoche.
+  setInterval(function(){
+    var n = new Date();
+    var k = n.getFullYear() + "-" + (n.getMonth()+1) + "-" + n.getDate();
+    if (k !== dayKey) { location.reload(); }
+  }, 60000);
+
+})();
+</script>
+</body>
+</html>
