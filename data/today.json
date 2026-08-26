@@ -1,7 +1,7 @@
 {
-  "date_iso": "2026-08-25",
-  "date_label": "Martes, 25 de agosto de 2026",
-  "generated_at_utc": "2026-08-25T22:48:32.754202Z",
+  "date_iso": "2026-08-26",
+  "date_label": "Miércoles, 26 de agosto de 2026",
+  "generated_at_utc": "2026-08-26T15:29:08.002524Z",
   "signs": [
     {
       "id": "aries",
@@ -78,30 +78,14 @@
   ],
   "readings": {
     "aries": {
-      "quote": "El astro que rige tu día premia la honestidad sobre la comodidad.",
-      "amor": "Conviene celebrar lo bueno de un vínculo antes de enfocarte en lo que falta.",
-      "trabajo": "Tu creatividad de hoy resuelve algo que la lógica no pudo sola.",
-      "salud": "Conviene bajar el volumen mental antes de que se convierta en tensión física.",
-      "numero": 81,
+      "quote": "Lo urgente rara vez es lo importante; hoy conviene recordarlo.",
+      "amor": "La ternura de hoy siembra confianza para las semanas que vienen.",
+      "trabajo": "Conviene cerrar un pendiente antes de abrir uno nuevo.",
+      "salud": "Tu cuerpo agradece hoy una pausa sin pantallas, aunque sea breve.",
+      "numero": 62,
       "color": {
-        "name": "Marfil",
-        "hex": "#c9bfa4"
-      },
-      "compatible": {
-        "id": "piscis",
-        "name": "Piscis",
-        "glyph": "♓"
-      }
-    },
-    "tauro": {
-      "quote": "Un paso pequeño y honesto vale más que un salto dudoso.",
-      "amor": "Hoy conviene decir lo que sientes antes de que se acumule en silencio.",
-      "trabajo": "Hoy alguien reconoce un esfuerzo que hiciste sin buscar aplausos.",
-      "salud": "Hoy es buen día para revisar una molestia que llevas ignorando.",
-      "numero": 71,
-      "color": {
-        "name": "Dorado",
-        "hex": "#b8873a"
+        "name": "Ámbar",
+        "hex": "#c98a2e"
       },
       "compatible": {
         "id": "acuario",
@@ -109,15 +93,31 @@
         "glyph": "♒"
       }
     },
-    "geminis": {
-      "quote": "No todo lo que se mueve avanza; hoy toca distinguir eso.",
-      "amor": "Un gesto espontáneo vale más que uno planeado con exceso.",
-      "trabajo": "Una idea que traías rondando encuentra hoy el momento de ponerse en marcha.",
+    "tauro": {
+      "quote": "El día premia a quien escucha antes de reaccionar.",
+      "amor": "Alguien nota tu esfuerzo aunque no lo diga en voz alta.",
+      "trabajo": "Hoy es buen día para simplificar un proceso innecesariamente complicado.",
       "salud": "Conviene escuchar el hambre real y no la ansiedad disfrazada de hambre hoy.",
-      "numero": 89,
+      "numero": 35,
       "color": {
-        "name": "Verde salvia",
-        "hex": "#7a9471"
+        "name": "Coral",
+        "hex": "#c96a56"
+      },
+      "compatible": {
+        "id": "cancer",
+        "name": "Cáncer",
+        "glyph": "♋"
+      }
+    },
+    "geminis": {
+      "quote": "Hoy es un buen día para confiar en tu propio ritmo.",
+      "amor": "Una disculpa sincera de hoy repara más de lo que imaginas.",
+      "trabajo": "Hoy alguien reconoce un esfuerzo que hiciste sin buscar aplausos.",
+      "salud": "Dormir un poco antes esta noche marca diferencia mañana.",
+      "numero": 86,
+      "color": {
+        "name": "Dorado",
+        "hex": "#b8873a"
       },
       "compatible": {
         "id": "libra",
@@ -126,14 +126,30 @@
       }
     },
     "cancer": {
-      "quote": "Cuidar los detalles pequeños hoy evita corregir errores grandes después.",
-      "amor": "Es buen momento para preguntar en vez de asumir en tus relaciones.",
-      "trabajo": "Es buen día para actualizar algo que llevaba tiempo desactualizado.",
-      "salud": "Conviene escuchar el hambre real y no la ansiedad disfrazada de hambre hoy.",
-      "numero": 99,
+      "quote": "Un día ordenado empieza por soltar una sola cosa innecesaria.",
+      "amor": "Una pequeña broma compartida hoy destensa algo que llevaba días tenso.",
+      "trabajo": "Hoy el orden en tu espacio de trabajo ordena también tu cabeza.",
+      "salud": "Hoy el descanso no es pérdida de tiempo, es inversión.",
+      "numero": 82,
       "color": {
-        "name": "Verde bosque",
-        "hex": "#3f6b52"
+        "name": "Violeta",
+        "hex": "#7c5cbf"
+      },
+      "compatible": {
+        "id": "libra",
+        "name": "Libra",
+        "glyph": "♎"
+      }
+    },
+    "leo": {
+      "quote": "Lo urgente rara vez es lo importante; hoy conviene recordarlo.",
+      "amor": "Un gesto espontáneo vale más que uno planeado con exceso.",
+      "trabajo": "Tu enfoque hoy se beneficia de una pausa breve a media tarde.",
+      "salud": "El cuerpo responde mejor a la constancia suave que al esfuerzo intenso hoy.",
+      "numero": 56,
+      "color": {
+        "name": "Marfil",
+        "hex": "#c9bfa4"
       },
       "compatible": {
         "id": "acuario",
@@ -141,15 +157,31 @@
         "glyph": "♒"
       }
     },
-    "leo": {
-      "quote": "Confía en que lo que construyes hoy no se ve completo todavía.",
-      "amor": "Conviene no confundir costumbre con compromiso real hoy.",
-      "trabajo": "Es buen momento para pedir ayuda en vez de cargar todo solo.",
-      "salud": "Hidratarte más de lo habitual te cae bien hoy.",
-      "numero": 30,
+    "virgo": {
+      "quote": "La intuición de hoy habla bajito; conviene no interrumpirla.",
+      "amor": "Una charla honesta hoy vale más que semanas de indirectas.",
+      "trabajo": "Hoy es buen día para simplificar un proceso innecesariamente complicado.",
+      "salud": "Hoy el cuerpo pide ternura, no exigencia.",
+      "numero": 99,
       "color": {
-        "name": "Marfil",
-        "hex": "#c9bfa4"
+        "name": "Verde salvia",
+        "hex": "#7a9471"
+      },
+      "compatible": {
+        "id": "acuario",
+        "name": "Acuario",
+        "glyph": "♒"
+      }
+    },
+    "libra": {
+      "quote": "Confía en que lo que construyes hoy no se ve completo todavía.",
+      "amor": "Hoy te conviene escuchar más de lo que hablas en tus vínculos cercanos.",
+      "trabajo": "Tu disciplina de hoy resuelve algo que llevaba días estancado.",
+      "salud": "Una conversación pendiente que te pesa también pesa en el cuerpo; suéltala hoy.",
+      "numero": 58,
+      "color": {
+        "name": "Violeta",
+        "hex": "#7c5cbf"
       },
       "compatible": {
         "id": "geminis",
@@ -157,76 +189,28 @@
         "glyph": "♊"
       }
     },
-    "virgo": {
-      "quote": "Las respuestas que buscas llegan más rápido cuando dejas de perseguirlas.",
-      "amor": "La ternura de hoy siembra confianza para las semanas que vienen.",
-      "trabajo": "Es buen momento para delegar algo que no necesita tu firma personal.",
-      "salud": "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
-      "numero": 73,
-      "color": {
-        "name": "Dorado",
-        "hex": "#b8873a"
-      },
-      "compatible": {
-        "id": "escorpio",
-        "name": "Escorpio",
-        "glyph": "♏"
-      }
-    },
-    "libra": {
-      "quote": "Cuidar los detalles pequeños hoy evita corregir errores grandes después.",
-      "amor": "Una relación que iba lenta encuentra hoy un empujón natural.",
-      "trabajo": "Una propuesta tuya llama la atención de quien menos esperabas.",
-      "salud": "Conviene bajar el ritmo antes de que el cansancio decida por ti.",
-      "numero": 32,
-      "color": {
-        "name": "Ámbar",
-        "hex": "#c98a2e"
-      },
-      "compatible": {
-        "id": "aries",
-        "name": "Aries",
-        "glyph": "♈"
-      }
-    },
     "escorpio": {
-      "quote": "El equilibrio de hoy no está en hacer más, sino en soltar algo.",
-      "amor": "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy.",
-      "trabajo": "Una tarea aburrida de hoy abre camino a algo más interesante mañana.",
-      "salud": "Dormir un poco antes esta noche marca diferencia mañana.",
-      "numero": 22,
+      "quote": "La paciencia de hoy es la ventaja de mañana.",
+      "amor": "Es buen momento para preguntar en vez de asumir en tus relaciones.",
+      "trabajo": "Tu instinto sobre una decisión laboral hoy vale más que la presión externa.",
+      "salud": "Una postura cuidada hoy evita una molestia acumulada mañana.",
+      "numero": 74,
       "color": {
-        "name": "Verde salvia",
-        "hex": "#7a9471"
+        "name": "Coral",
+        "hex": "#c96a56"
       },
       "compatible": {
-        "id": "aries",
-        "name": "Aries",
-        "glyph": "♈"
+        "id": "cancer",
+        "name": "Cáncer",
+        "glyph": "♋"
       }
     },
     "sagitario": {
-      "quote": "La claridad llega cuando dejas de forzar la respuesta.",
-      "amor": "Alguien cercano necesita que bajes la guardia un poco antes que tú.",
-      "trabajo": "Una tarea aburrida de hoy abre camino a algo más interesante mañana.",
-      "salud": "Hoy es buen día para volver a una rutina que habías abandonado.",
-      "numero": 93,
-      "color": {
-        "name": "Ámbar",
-        "hex": "#c98a2e"
-      },
-      "compatible": {
-        "id": "aries",
-        "name": "Aries",
-        "glyph": "♈"
-      }
-    },
-    "capricornio": {
-      "quote": "Un paso pequeño y honesto vale más que un salto dudoso.",
-      "amor": "Conviene no confundir costumbre con compromiso real hoy.",
-      "trabajo": "Una decisión financiera pequeña de hoy conviene pensarla dos veces.",
-      "salud": "Hoy es buen día para volver a una rutina que habías abandonado.",
-      "numero": 12,
+      "quote": "El silencio de hoy tiene más respuestas que el ruido de ayer.",
+      "amor": "Hoy el amor pide presencia, no perfección.",
+      "trabajo": "Una charla directa con un colega destraba más de lo que esperas.",
+      "salud": "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
+      "numero": 69,
       "color": {
         "name": "Rosa antiguo",
         "hex": "#b97a86"
@@ -237,36 +221,52 @@
         "glyph": "♉"
       }
     },
-    "acuario": {
-      "quote": "Hoy la calma vale más que la prisa.",
-      "amor": "Una pequeña broma compartida hoy destensa algo que llevaba días tenso.",
-      "trabajo": "Tu creatividad de hoy resuelve algo que la lógica no pudo sola.",
-      "salud": "Hoy el descanso no es pérdida de tiempo, es inversión.",
-      "numero": 99,
+    "capricornio": {
+      "quote": "La claridad llega cuando dejas de forzar la respuesta.",
+      "amor": "Una relación que iba lenta encuentra hoy un empujón natural.",
+      "trabajo": "Conviene revisar los detalles antes de dar algo por terminado.",
+      "salud": "Hoy es buen día para revisar una molestia que llevas ignorando.",
+      "numero": 19,
       "color": {
-        "name": "Terracota",
-        "hex": "#c1673f"
+        "name": "Azul noche",
+        "hex": "#3b4f7a"
       },
       "compatible": {
-        "id": "leo",
-        "name": "Leo",
-        "glyph": "♌"
+        "id": "cancer",
+        "name": "Cáncer",
+        "glyph": "♋"
+      }
+    },
+    "acuario": {
+      "quote": "Hoy la calma vale más que la prisa.",
+      "amor": "Una señal pequeña de alguien especial merece tu atención completa.",
+      "trabajo": "Conviene documentar hoy algo que solo tienes en la cabeza.",
+      "salud": "Tu cuerpo agradece hoy una pausa sin pantallas, aunque sea breve.",
+      "numero": 21,
+      "color": {
+        "name": "Rosa antiguo",
+        "hex": "#b97a86"
+      },
+      "compatible": {
+        "id": "cancer",
+        "name": "Cáncer",
+        "glyph": "♋"
       }
     },
     "piscis": {
-      "quote": "El universo susurra antes de hablar en voz alta.",
-      "amor": "Tu independencia y tu vida en pareja piden un equilibrio más justo hoy.",
-      "trabajo": "Una oportunidad se abre si te animas a preguntar directamente.",
-      "salud": "Hidratarte más de lo habitual te cae bien hoy.",
-      "numero": 47,
+      "quote": "Lo urgente rara vez es lo importante; hoy conviene recordarlo.",
+      "amor": "Una disculpa sincera de hoy repara más de lo que imaginas.",
+      "trabajo": "Tu creatividad de hoy resuelve algo que la lógica no pudo sola.",
+      "salud": "Una caminata corta ordena mejor la cabeza que quedarte quieto pensando.",
+      "numero": 3,
       "color": {
-        "name": "Ámbar",
-        "hex": "#c98a2e"
+        "name": "Azul noche",
+        "hex": "#3b4f7a"
       },
       "compatible": {
-        "id": "capricornio",
-        "name": "Capricornio",
-        "glyph": "♑"
+        "id": "escorpio",
+        "name": "Escorpio",
+        "glyph": "♏"
       }
     }
   }
